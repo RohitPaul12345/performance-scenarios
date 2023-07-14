@@ -1,21 +1,21 @@
-var arrayLength = 1000;
-var iterations = 200;
-var min = 0;
-var max = 1000000;
+let arrayLength = 1000;
+let iterations = 200;
+let min = 0;
+let max = 1000000;
 
 /**
  * Bubble sort
  */
 
 function swap(items, firstIndex, secondIndex){
-    var temp = items[firstIndex];
+    let temp = items[firstIndex];
     items[firstIndex] = items[secondIndex];
     items[secondIndex] = temp;
 }
 
 function bubbleSort(items){
 
-    var len = items.length,
+    let len = items.length,
         i, j, stop;
 
     for (i=0; i < len; i++){
@@ -35,7 +35,7 @@ function bubbleSort(items){
 
 function selectionSort(items){
 
-    var len = items.length,
+    let len = items.length,
         min;
 
     for (i=0; i < len; i++){
@@ -65,7 +65,7 @@ function selectionSort(items){
 
 function partition(items, left, right) {
 
-    var pivot   = items[Math.floor((right + left) / 2)],
+    let pivot   = items[Math.floor((right + left) / 2)],
         i       = left,
         j       = right;
 
@@ -92,7 +92,7 @@ function partition(items, left, right) {
 
 function quickSort(items, left, right) {
 
-    var index;
+    let index;
 
     if (items.length > 1) {
 
@@ -127,15 +127,15 @@ function timedSort(unsorted) {
 }
 
 function sortAll() {
-  for (var i = 2; i <= iterations; ++i) {
-    var unsorted = [];
-    for (var j = 0; j < arrayLength; j++) {
-      var element = Math.floor(Math.random() * (max - min + 1)) + min;
+  for (let i = 2; i <= iterations; ++i) {
+    let unsorted = [];
+    for (let j = 0; j < arrayLength; j++) {
+      let element = Math.floor(Math.random() * (max - min + 1)) + min;
       unsorted.push(element);
     }
     sort(unsorted);
   }
 }
 
-var sortButton = document.getElementById("sort");
+let sortButton = document.getElementById("sort");
 sortButton.addEventListener("click", sortAll, false);
